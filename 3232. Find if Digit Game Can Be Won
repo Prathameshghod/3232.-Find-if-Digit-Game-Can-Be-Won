@@ -1,0 +1,56 @@
+ *****************************3232. Find if Digit Game Can Be Won ****************************************************************************************
+
+
+# Python Code 
+
+class Solution:
+    def canAliceWin(self, nums: List[int]) -> bool:
+        result1 = []
+        result2 = []
+        for i in nums:
+            if 10<= i <= 99 :
+                result1.append(i)
+            
+            else:
+                result2.append(i)
+        
+        if sum(result1) < sum(result2):
+            return True 
+        
+        elif sum(result1) > sum(result2):
+            return True
+        else: 
+            return False 
+
+//// C++ Code ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+class Solution {
+public:
+    bool canAliceWin(const std::vector<int>& nums) {
+        std::vector <int> result1;
+        std::vector <int> result2;
+        for( int i: nums){
+            if (i>= 10 && i<= 99){
+                result1.push_back(i);
+            }
+            else{
+                result2.push_back(i);                
+            }
+        }        
+        int sum_result1 =std::accumulate(result1.begin() , result1.end(), 0);    
+        int sum_result2 =std::accumulate(result2.begin() , result2.end(),0);
+    
+        
+        if (sum_result1 > sum_result2 ){
+            return true;
+        }
+        
+        else if (sum_result1 < sum_result2){
+            return true;
+        }
+        
+        else{
+            return false;
+        }
+    }
+};
